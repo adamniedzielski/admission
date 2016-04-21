@@ -74,5 +74,13 @@ defmodule Admission.Builder do
       ] ++ shared_args ++ [file],
       cd: directory
     )
+    remove_everything_outside_body_tag(directory, index)
+  end
+
+  defp remove_everything_outside_body_tag(directory, index) do
+    path = [directory, "build", "previews", "#{index}.html"] |> Path.join
+    content = File.read!(path)
+    [[_, inside_body]] = Regex.scan(~r{<body>(.*)</body>}ms, content)
+    File.write!(path, inside_body)
   end
 end
