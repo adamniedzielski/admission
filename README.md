@@ -14,6 +14,7 @@ mix escript.build
 1. Pandoc - http://pandoc.org/installing.html
 2. Calibre with the command-line tools - https://manual.calibre-ebook.com/generated/en/ebook-convert.html
 3. headings - https://github.com/adamniedzielski/headings
+4. ChapterSampler - https://github.com/adamniedzielski/chapter_sampler
 
 ## Directories structure
 
@@ -22,6 +23,7 @@ workspace
 --- admission
 --- my-cool-book
 --- headings
+--- chapter_sampler
 ```
 
 ## Running
