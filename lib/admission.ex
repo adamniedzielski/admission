@@ -5,6 +5,7 @@ defmodule Admission do
     Admission.Builder.generate_pdf(config, directory)
     Admission.Builder.generate_epub(config, directory)
     Admission.Builder.generate_mobi(directory)
+    Admission.Builder.generate_html_previews(config, directory)
     Admission.Submitter.send_files_to_api(config, directory)
   end
 
