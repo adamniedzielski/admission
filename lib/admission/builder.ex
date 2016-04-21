@@ -11,7 +11,7 @@ defmodule Admission.Builder do
     files_to_compile = ["epub_metadata.md"] ++ config.chapters
     {_, 0} = System.cmd(
       "pandoc",
-      ["-o", "book.epub"] ++ shared_args ++ files_to_compile,
+      ["-o", "build/book.epub"] ++ shared_args ++ files_to_compile,
       cd: directory
     )
   end
@@ -19,7 +19,7 @@ defmodule Admission.Builder do
   def generate_mobi(directory) do
     {_, 0} = System.cmd(
       "ebook-convert",
-      ["book.epub", "book.mobi"],
+      ["build/book.epub", "build/book.mobi"],
       cd: directory
     )
   end
@@ -43,7 +43,7 @@ defmodule Admission.Builder do
       "-V",
       "author=#{config.author}",
       "-o",
-      "book.pdf"
+      "build/book.pdf"
     ]
   end
 end

@@ -20,7 +20,7 @@ defmodule Admission.Submitter do
   end
 
   defp encode_file(directory, name) do
-    directory |> Path.join(name) |> File.read! |> Base.encode64
+    Path.join([directory, "build", name]) |> File.read! |> Base.encode64
   end
 
   defp headers do
