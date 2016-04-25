@@ -12,7 +12,9 @@ defmodule Admission.Builder do
         "-o",
         "build/book.pdf",
         "--toc",
-        "--toc-depth=1"
+        "--toc-depth=1",
+        "--template",
+        "#{System.cwd()}/template.latex"
       ] ++ shared_args ++ config.chapters,
       cd: directory
     )
