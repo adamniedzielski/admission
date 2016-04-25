@@ -183,6 +183,16 @@ $if(dir)$
   \newenvironment{LTR}{\beginL}{\endL}
 \fi
 $endif$
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+\fancyhf{} % clear the headers
+\fancyhead[C]{\textbf{\nouppercase{\leftmark}}}
+\fancyhead[L]{\thepage}
+\fancyfoot{}
+
 $for(header-includes)$
 $header-includes$
 $endfor$
