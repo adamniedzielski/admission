@@ -37,7 +37,9 @@ For this build command to work, this assumes
 * you are using the directory structure given above
 * that the `epub_metadata.md` and `book_config.exs` files are correctly configured in your book folder (e.g. /my-cool-book). You can download a template for your book folder [here](https://github.com/adamniedzielski/test-book)
 * that a Book record exists on the Confessions server and has a slug
-  matching the one given in `book_config.exs`
+  matching the one given in `book_config.exs` and that a view file for
+that book exists in `app/views/books/contents` with a filename that matches the slug name (using
+underscores instead of hyphens)
 
 Now for the command: in the ```admission``` directory:
 
