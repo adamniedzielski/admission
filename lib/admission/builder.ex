@@ -15,13 +15,13 @@ defmodule Admission.Builder do
         "--toc-depth=1",
         "--template",
         "#{System.cwd()}/template.latex"
-      ] ++ shared_args ++ config.chapters,
+      ] ++ shared_args ++ chapter_file_names(config),
       cd: directory
     )
   end
 
   def generate_epub(config, directory) do
-    files_to_compile = ["epub_metadata.md"] ++ config.chapters
+    files_to_compile = ["epub_metadata.md"] ++ chapter_file_names(config)
     {_, 0} = System.cmd(
       "pandoc",
       [
@@ -48,7 +48,8 @@ defmodule Admission.Builder do
     |> Path.wildcard
     |> Enum.each(&File.rm_rf!/1)
 
-    config.chapters
+    config
+    |> chapter_file_names
     |> Enum.with_index
     |> Enum.each(&(generate_html_preview(&1, directory)))
   end
@@ -84,5 +85,9 @@ defmodule Admission.Builder do
     content = File.read!(path)
     [[_, inside_body]] = Regex.scan(~r{<body>(.*)</body>}ms, content)
     File.write!(path, inside_body)
+  end
+
+  defp chapter_file_names(config) do
+    config.chapters |> Enum.map(&(&1[:file_name]))
   end
 end
