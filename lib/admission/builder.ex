@@ -63,6 +63,7 @@ defmodule Admission.Builder do
   end
 
   defp generate_html_preview({file, index}, directory) do
+    output_file_name = String.replace_suffix(file, ".md", ".html")
     {_, 0} = System.cmd(
       "pandoc",
        [
@@ -73,15 +74,15 @@ defmodule Admission.Builder do
         "--self-contained",
         "--number-offset=#{index}",
         "-o",
-        "build/previews/#{index}.html"
+        "build/previews/#{output_file_name}"
       ] ++ shared_args ++ [file],
       cd: directory
     )
-    remove_everything_outside_body_tag(directory, index)
+    remove_everything_outside_body_tag(directory, output_file_name)
   end
 
-  defp remove_everything_outside_body_tag(directory, index) do
-    path = [directory, "build", "previews", "#{index}.html"] |> Path.join
+  defp remove_everything_outside_body_tag(directory, file_name) do
+    path = [directory, "build", "previews", file_name] |> Path.join
     content = File.read!(path)
     [[_, inside_body]] = Regex.scan(~r{<body>(.*)</body>}ms, content)
     File.write!(path, inside_body)
