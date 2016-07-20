@@ -18,6 +18,7 @@ $endif$
 }{}
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
+\frenchspacing % single instead of double spaces after sentences
 $if(colorlinks)$
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 $endif$
