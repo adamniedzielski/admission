@@ -6,7 +6,8 @@ defmodule Admission.Submitter do
       HTTPoison.patch(
         "#{api_url}#{config.book_slug}",
         Poison.encode!(payload),
-        headers
+        headers,
+        [recv_timeout: 1000000]
       )
   end
 
