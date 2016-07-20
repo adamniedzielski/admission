@@ -71,12 +71,6 @@ $endif$
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 $if(lang)$
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
-$if(babel-newcommands)$
-  $babel-newcommands$
-$endif$
-\else
   \usepackage{polyglossia}
   \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
 $for(polyglossia-otherlangs)$
@@ -162,19 +156,12 @@ $else$
 $endif$
 $if(dir)$
 \ifxetex
-  % load bidi as late as possible as it modifies e.g. graphicx
+% load bidi as late as possible as it modifies e.g. graphicx
   $if(latex-dir-rtl)$
   \usepackage[RTLdocument]{bidi}
   $else$
   \usepackage{bidi}
   $endif$
-\fi
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \TeXXeTstate=1
-  \newcommand{\RL}[1]{\beginR #1\endR}
-  \newcommand{\LR}[1]{\beginL #1\endL}
-  \newenvironment{RTL}{\beginR}{\endR}
-  \newenvironment{LTR}{\beginL}{\endL}
 \fi
 $endif$
 
