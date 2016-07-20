@@ -9,6 +9,7 @@ defmodule Admission.Builder do
         "title=#{config.title}",
         "-V",
         "author=#{config.author}",
+        "--latex-engine=xelatex",
         "-o",
         "build/book.pdf",
         "--toc",
