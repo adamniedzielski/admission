@@ -131,6 +131,7 @@ $endif$
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 
 \fancyhf{} % clear the headers
+\setlength{\headheight}{22pt} 
 \fancyhead[C]{\textbf{\nouppercase{\leftmark}}}
 \fancyhead[L]{\thepage}
 \fancyfoot{}
