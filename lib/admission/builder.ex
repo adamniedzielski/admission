@@ -58,7 +58,7 @@ defmodule Admission.Builder do
     [
       "--number-sections",
       "--standalone",
-      "--filter=../headings/headings"
+      "--filter=../headings/wrapper"
     ]
   end
 
@@ -68,7 +68,7 @@ defmodule Admission.Builder do
       "pandoc",
        [
         "--filter",
-        "../chapter_sampler/chapter_sampler",
+        "../chapter_sampler/wrapper",
         "-t",
         "html5",
         "--self-contained",
