@@ -8,7 +8,6 @@ $endif$
 \usepackage{amssymb,amsmath}
 \sloppy % relax justification rules so as to stop bleeding into right margin
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \usepackage{eurosym}
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
