@@ -1,9 +1,6 @@
-\documentclass[14pt]{extreport}
-$if(fontfamily)$
-\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
-$else$
-\usepackage{lmodern}
-$endif$
+\documentclass[17pt]{extreport}
+\usepackage{fontspec}
+\setmainfont{Adobe Garamond Pro}
 $if(linestretch)$
 \usepackage{setspace}
 \setstretch{$linestretch$}
