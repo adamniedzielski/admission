@@ -18,6 +18,7 @@ $endif$
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 \usepackage[margin=1in]{geometry}
+\usepackage[margin=10pt,font=small,labelfont=bf, labelsep=endash]{caption} % prettier captions
 \usepackage{hyperref}
 \frenchspacing % single instead of double spaces after sentences
 $if(colorlinks)$
