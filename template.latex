@@ -1,170 +1,156 @@
 \documentclass[14pt]{extreport}
+
+% Choose System Fonts
 \usepackage{fontspec}
 \setmainfont{Adobe Garamond Pro}
-$if(linestretch)$
-\usepackage{setspace}
-\setstretch{$linestretch$}
-$endif$
-\usepackage{amssymb,amsmath}
-\usepackage[hang,flushmargin]{footmisc} % better indentation of footnotes
-\sloppy % relax justification rules so as to stop bleeding into right margin
-\usepackage{ifxetex,ifluatex}
+
+% Better indentation of footnotes
+\usepackage[hang,flushmargin]{footmisc}
+
+% Use Euros
 \usepackage{eurosym}
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
+
+% Show "realistic" quotes in verbatim (code blocks)
+\usepackage{upquote}
+
+% Prettier Typesetting
 \usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
+% Sisable protrusion for tt fonts
+\UseMicrotypeSet[protrusion]{basicmath}
+
+% Custom Margins
 \usepackage[margin=1in]{geometry}
-\usepackage[margin=10pt,font=small,labelfont=bf, labelsep=endash]{caption} % prettier captions
+
+% Prettier Captions
+\usepackage[margin=10pt,font=small,labelfont=bf, labelsep=endash]{caption}
+
+% Hyperlinks (and links within doc)
 \usepackage{hyperref}
-\frenchspacing % single instead of double spaces after sentences
-$if(colorlinks)$
-\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
-$endif$
-\hypersetup{unicode=true,
-$if(title-meta)$
-            pdftitle={$title-meta$},
-$endif$
-$if(author-meta)$
-            pdfauthor={$author-meta$},
-$endif$
-$if(colorlinks)$
-            colorlinks=true,
-            linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
-            citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
-            urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$,
-$else$
-            pdfborder={0 0 0},
-$endif$
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
-$if(listings)$
+% Don't use monospace font for urls
+\urlstyle{same}
+
+% Relax justification rules so as to stop bleeding into right margin
+\sloppy
+% setting the length variable of a configuration used by sloppy internally
+\setlength{\emergencystretch}{3em}
+
+% Single instead of double spaces after sentences
+\frenchspacing
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Code Listings
 \usepackage{listings}
-$endif$
-$if(lhs)$
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
-$endif$
+
 $if(highlighting-macros)$
-$highlighting-macros$
+  $highlighting-macros$
 $endif$
-$if(tables)$
-\usepackage{longtable,booktabs}
-$endif$
-$if(graphics)$
+
+% Extra commands and configuration for tables
+\usepackage{booktabs}
+% Allow tables to run over one page (required by Pandoc unfortunately...)
+\usepackage{longtable}
+
+% Latex cannot handle graphics on its own, so we delegate to libraries
 \usepackage{graphicx,grffile}
+%This is make at (@) a letter. That is: allow \c@page to be the command with name c@page with @ part of the name. In normal document code it would be parsed as the command \c the punctuation character @ and then the normal letters to be typeset page.
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+  \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+  \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+% Put @ back to being a punctuation character so internal commands can not be accessed.
 \makeatother
 % Scale images if necessary, so that they will not overflow the page
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-$endif$
-$if(strikeout)$
+
+% Support strikeout markdown
 \usepackage[normalem]{ulem}
-% avoid problems with \sout in headers with hyperref:
+
+% Avoid problems with \sout in headers with hyperref:
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
-$endif$
-$if(indent)$
-$else$
-\IfFileExists{parskip.sty}{%
+
+% Tidier paragraph spacing solution
 \usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-$endif$
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-$if(numbersections)$
-\setcounter{secnumdepth}{5}
-$else$
-\setcounter{secnumdepth}{0}
-$endif$
+
 $if(subparagraph)$
 $else$
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-$endif$
-$if(dir)$
-\ifxetex
-% load bidi as late as possible as it modifies e.g. graphicx
-  $if(latex-dir-rtl)$
-  \usepackage[RTLdocument]{bidi}
-  $else$
-  \usepackage{bidi}
-  $endif$
-\fi
+  % Redefines (sub)paragraphs to behave more like sections
+  \ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+  \fi
+  \ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+  \fi
 $endif$
 
+% Modify Headers
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-
-\fancyhf{} % clear the headers
-\setlength{\headheight}{22pt} 
+% Clear the headers
+\fancyhf{}
+\setlength{\headheight}{22pt}
 \fancyhead[C]{\textbf{\nouppercase{\leftmark}}}
 \fancyhead[L]{\thepage}
 \fancyfoot{}
 
 $for(header-includes)$
-$header-includes$
+  $header-includes$
 $endfor$
 
 $if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+  \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
+
 $if(subtitle)$
-\providecommand{\subtitle}[1]{}
-\subtitle{$subtitle$}
+  \providecommand{\subtitle}[1]{}
+  \subtitle{$subtitle$}
 $endif$
+
 $if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
+  \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
-$if(institute)$
-\institute{$for(institute)$$institute$$sep$ \and $endfor$}
-$endif$
+
 \date{$date$}
 
+%% CORE DOCUMENT TEMPLATE
 \begin{document}
-$if(title)$
-\maketitle
-$endif$
-$if(abstract)$
-\begin{abstract}
-$abstract$
-\end{abstract}
-$endif$
+  $if(title)$
+    \maketitle
+  $endif$
 
-$for(include-before)$
-$include-before$
+  $if(abstract)$
+    \begin{abstract}
+      $abstract$
+    \end{abstract}
+  $endif$
 
-$endfor$
-$if(toc)$
-{
-$if(colorlinks)$
-\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
-$endif$
-\setcounter{tocdepth}{$toc-depth$}
-\tableofcontents
-}
-$endif$
-$body$
+  $for(include-before)$
+    $include-before$
+  $endfor$
 
-$for(include-after)$
-$include-after$
+  $if(toc)$
+    {
+    $if(colorlinks)$
+      \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
+    $endif$
+    \setcounter{tocdepth}{$toc-depth$}
+    \tableofcontents
+    }
+  $endif$
 
-$endfor$
+  $body$
+
+  $for(include-after)$
+    $include-after$
+  $endfor$
+
 \end{document}
