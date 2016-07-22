@@ -1,3 +1,7 @@
+% Best LaTeX Documentation: https://en.wikibooks.org/wiki/LaTeX/
+% Gives default values to commands in packages, and explains everything
+% clearly.
+
 \documentclass[14pt]{extreport}
 
 % Choose System Fonts
@@ -40,9 +44,13 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+% Allows you to set fontcolor, backgrounds etc.
+\usepackage[dvipsnames]{xcolor}
+
 % Code Listings
 \usepackage{listings}
-\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+\setmonofont[Scale=0.6]{Monaco}
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\tiny\ttfamily}}{}
 
 $if(highlighting-macros)$
   $highlighting-macros$
