@@ -78,6 +78,8 @@
   {\sffamily\normalsize\bfseries\color{light-gray}}
   {\thesubsection}{0.5em}{}
 
+\titlespacing\subsection{0pt}{0pt plus 4pt minus 2pt}{-7pt plus 2pt minus 2pt}
+
 % Code Listings
 \usepackage{listings}
 \setmonofont[Scale=0.6]{Monaco}
