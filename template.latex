@@ -138,14 +138,21 @@ $endif$
 
 % Modify Headers
 \usepackage{fancyhdr}
-\pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 % Clear the headers
 \fancyhf{}
 \setlength{\headheight}{22pt}
 \fancyhead[C]{\textbf{\nouppercase{\leftmark}}}
 \fancyhead[L]{\textbf{\color{website-orange}\thepage}}
-\fancyfoot{}
+% Use the style we just defined
+\pagestyle{fancy}
+
+% Redefine the plain page style that applies to new chapters
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot{}
+  \renewcommand{\headrulewidth}{0pt}% Line at the header invisible
+}
 
 $for(header-includes)$
   $header-includes$
