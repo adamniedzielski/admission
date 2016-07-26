@@ -115,12 +115,13 @@ $endif$
 
 % Tidier paragraph spacing solution
 \usepackage{parskip}
-% Larger skips between paragraphs
-\setlength{\parskip}{14pt}
 
 % Lists should be tighter
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{enumitem}
+\setlist{listparindent=-0pt,parsep=0pt}
+
+% Larger skips between paragraphs
+\setlength{\parskip}{14pt}
 
 $if(subparagraph)$
 $else$
