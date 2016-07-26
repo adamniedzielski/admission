@@ -144,7 +144,7 @@ $endif$
 \fancyhf{}
 \setlength{\headheight}{22pt}
 \fancyhead[C]{\textbf{\nouppercase{\leftmark}}}
-\fancyhead[L]{\thepage}
+\fancyhead[L]{\textbf{\color{website-orange}\thepage}}
 \fancyfoot{}
 
 $for(header-includes)$
