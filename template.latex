@@ -15,9 +15,6 @@
 % Use Euros
 \usepackage{eurosym}
 
-% Show "realistic" quotes in verbatim (code blocks)
-\usepackage{upquote}
-
 % Prettier Typesetting
 \usepackage{microtype}
 % Sisable protrusion for tt fonts
@@ -87,8 +84,16 @@
 
 % Code Block Listings
 \usepackage{listings}
+% Show "realistic" quotes in verbatim (code blocks)
+\usepackage{upquote}
 \setmonofont[Scale=0.6]{Monaco}
-\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\tiny\ttfamily}}{}
+
+% Solution to remove excess white-space around code-blocks
+\usepackage{etoolbox}
+\makeatletter
+\preto{\@verbatim}{\topsep=-7pt \partopsep=-14pt }
+\makeatother
+
 
 $if(highlighting-macros)$
   $highlighting-macros$
