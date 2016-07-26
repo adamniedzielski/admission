@@ -110,7 +110,10 @@ $endif$
 
 % Tidier paragraph spacing solution
 \usepackage{parskip}
+% Larger skips between paragraphs
+\setlength{\parskip}{14pt}
 
+% Lists should be tighter
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
