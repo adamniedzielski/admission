@@ -45,8 +45,8 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% Allows you to set fontcolor, backgrounds etc.
-\usepackage{xcolor}
+% Allows you to set fontcolor, backgrounds etc., and give access to \rowcolor command
+\usepackage[table]{xcolor}
 % Define my colour scheme
 \definecolor{light-gray}{gray}{0.5}
 % RGB must be in decimal (divide by 255)
@@ -89,6 +89,9 @@ $if(highlighting-macros)$
   $highlighting-macros$
 $endif$
 
+% Zebra table colours
+\definecolor{table-stripe}{gray}{0.9}
+\rowcolors{3}{table-stripe}{}
 % Extra commands and configuration for tables
 \usepackage{booktabs}
 % Allow tables to run over one page (required by Pandoc unfortunately...)
@@ -116,7 +119,7 @@ $endif$
 % Tidier paragraph spacing solution
 \usepackage{parskip}
 
-% Lists should be tighter
+% Lists should be tighter. We use a package so as not to interfere with paragraph spacing
 \usepackage{enumitem}
 \setlist{listparindent=-0pt,parsep=0pt}
 
