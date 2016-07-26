@@ -49,9 +49,9 @@
 \usepackage{xcolor}
 % Define my colour scheme
 \definecolor{light-gray}{gray}{0.5}
-
 % RGB must be in decimal (divide by 255)
 \definecolor{website-orange}{rgb}{0.973,0.37,0.25}
+
 % Lets you style the title fonts separately
 \usepackage{titlesec}
 
@@ -63,6 +63,7 @@
   {0pt}
   {\LARGE\sffamily}
 
+% {left space}{before space}{after space}
 \titlespacing\chapter{0pt}{0pt plus 4pt minus 2pt}{14pt plus 2pt minus 2pt}
 
 \titleformat{\section}
@@ -70,6 +71,8 @@
   {\thesection}
   {1em}
   {}
+
+\titlespacing\section{0pt}{0pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 
 \titleformat{\subsection}
   {\sffamily\normalsize\bfseries\color{light-gray}}
