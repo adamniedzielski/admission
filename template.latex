@@ -7,6 +7,7 @@
 % Choose System Fonts
 \usepackage{fontspec}
 \setmainfont{Adobe Garamond Pro}
+\setsansfont{Gill Sans}[Scale=MatchLowercase]
 
 % Better indentation of footnotes
 \usepackage[hang,flushmargin]{footmisc}
@@ -45,7 +46,34 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % Allows you to set fontcolor, backgrounds etc.
-\usepackage[dvipsnames]{xcolor}
+\usepackage{xcolor}
+% Define my colour scheme
+\definecolor{light-gray}{gray}{0.5}
+
+% RGB must be in decimal (divide by 255)
+\definecolor{website-orange}{rgb}{0.973,0.37,0.25}
+% Lets you style the title fonts separately
+\usepackage{titlesec}
+
+\newcommand{\hsp}{\hspace{20pt}}
+% bfseries = bold font
+\titleformat{\chapter}[hang]
+  {\LARGE\sffamily\bfseries\color{black}}
+  {\thechapter\hsp\textcolor{website-orange}{|}\hsp}
+  {0pt}
+  {\LARGE\sffamily}
+
+\titlespacing\chapter{0pt}{0pt plus 4pt minus 2pt}{14pt plus 2pt minus 2pt}
+
+\titleformat{\section}
+  {\sffamily\large\bfseries\color{black}}
+  {\thesection}
+  {1em}
+  {}
+
+\titleformat{\subsection}
+  {\sffamily\normalsize\bfseries\color{light-gray}}
+  {\thesubsection}{0.5em}{}
 
 % Code Listings
 \usepackage{listings}
