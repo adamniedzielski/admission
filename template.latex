@@ -99,11 +99,10 @@ $if(highlighting-macros)$
   $highlighting-macros$
 $endif$
 
-% Zebra table colours
-\definecolor{table-stripe}{gray}{0.9}
-\rowcolors{3}{table-stripe}{}
 % Extra commands and configuration for tables
 \usepackage{booktabs}
+% more space between table rows
+\renewcommand{\arraystretch}{1.3}
 % Allow tables to run over one page (required by Pandoc unfortunately...)
 \usepackage{longtable}
 
