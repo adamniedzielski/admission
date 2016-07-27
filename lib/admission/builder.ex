@@ -29,7 +29,8 @@ defmodule Admission.Builder do
         "-o",
         "build/book.epub",
         "--toc",
-        "--toc-depth=1"
+        "--toc-depth=3",
+        "--epub-stylesheet=#{System.cwd()}/epub.css"
       ] ++ shared_args ++ files_to_compile,
       cd: directory
     )
