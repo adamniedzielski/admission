@@ -148,17 +148,19 @@ ul, ol, dl {
 
 li {
   font-family: "Adobe Garamond Pro", "Garamond", "Palatino", "Times New Roman", Caecilia, serif;
-  line-height: 1.5em;
+  /*line-height: 1.5em;*/
   orphans: 2;
   widows: 2;
-  text-align: justify;
   text-indent: 0;
-  margin: 0; }
+  margin: 0;
+}
 
 li p {
     /* Fix paragraph indenting inside of lists */
   text-indent: 0em;
-  margin-bottom: 0.3em;
+  display: inline;
+  padding: none;
+  margin: 0em;
 }
 
 dt {
@@ -196,7 +198,7 @@ pre {
   display: block; }
 
 .footnoteRef {
-  font-size: 0.75em;
+  font-size: 0.55em;
   vertical-align: super;
 }
 
@@ -221,11 +223,18 @@ img.pwhack {
 
 .caption {
   text-align: center;
-  margin: 0 auto;
-  margin-left: 0;
+  margin-left: 2em;
   text-indent 0;
   width: 85%;
   font-weight: bold;
+}
+
+caption {
+ caption-side: bottom;
+ font-weight: bold;
+ padding-left: 2em;
+ padding-right: 2em;
+ text-align: justify;
 }
 
 p img {
