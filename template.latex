@@ -135,6 +135,9 @@ $endif$
 % Larger skips between paragraphs
 \setlength{\parskip}{14pt}
 
+% Allow for highlighted color boxes
+\usepackage{soul}
+
 $if(subparagraph)$
 $else$
   % Redefines (sub)paragraphs to behave more like sections
