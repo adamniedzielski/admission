@@ -15,7 +15,7 @@ defmodule Admission.Builder do
         "--toc",
         "--toc-depth=3",
         "--include-before-body",
-        "#{System.cwd()}/../book/content-pre-toc.latex",
+        "content-pre-toc.latex",
         "--template",
         "#{System.cwd()}/template.latex"
       ] ++ shared_args ++ chapter_file_names(config),
