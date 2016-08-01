@@ -16,6 +16,7 @@ mix escript.build
 3. headings - https://github.com/adamniedzielski/headings
 4. ChapterSampler - https://github.com/adamniedzielski/chapter_sampler
 5. Confessions - a server for uploading the book https://github.com/jackkinsella/confessions
+6. ```xelatex```
 
 ## Directories structure
 
