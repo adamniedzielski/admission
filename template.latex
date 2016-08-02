@@ -28,6 +28,10 @@
 
 % Hyperlinks (and links within doc)
 \usepackage{hyperref}
+% Remove default red borders around links in some PDF-viewers
+\hypersetup{%
+    pdfborder = {0 0 0}
+}
 % Don't use monospace font for urls
 \urlstyle{same}
 
