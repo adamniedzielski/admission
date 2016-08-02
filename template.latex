@@ -6,8 +6,13 @@
 
 % Choose System Fonts
 \usepackage{fontspec}
-\setmainfont{Adobe Garamond Pro}
-\setsansfont{Gill Sans}[Scale=MatchLowercase]
+\setmainfont{Libre Baskerville}
+\setsansfont{Playfair Display Black}
+% Convenience methods for use in other packages
+\newfontfamily{\playfair}{Playfair Display Black}
+\DeclareTextFontCommand{\textplayfair}{\playfair}
+% Small Caps
+\newfontfamily{\smallcapheadingsfont}{Playfair Display SC}
 
 % Better indentation of footnotes
 \usepackage[hang,flushmargin]{footmisc}
@@ -24,7 +29,7 @@
 \usepackage[margin=1in]{geometry}
 
 % Prettier Captions
-\usepackage[margin=10pt,font=small,labelfont=bf, labelsep=endash]{caption}
+\usepackage[margin=10pt,font=small,labelfont=bf,labelsep=endash]{caption}
 
 % Hyperlinks (and links within doc)
 \usepackage{hyperref}
@@ -82,7 +87,7 @@
 \titlespacing\subsection{0pt}{0pt plus 4pt minus 2pt}{-7pt plus 2pt minus 2pt}
 
 \titleformat{\subsubsection}
-  {\sffamily\small\sc\color{website-orange}}
+  {\smallcapheadingsfont\color{website-orange}}
   {\thesubsubsection}{0em}{}
 \titlespacing\subsubsection{0pt}{-7pt plus 4pt minus 2pt}{-7pt plus 2pt minus 2pt}
 
@@ -161,8 +166,8 @@ $endif$
 % Clear the headers
 \fancyhf{}
 \setlength{\headheight}{22pt}
-\fancyhead[C]{\textbf{\nouppercase{\leftmark}}}
-\fancyhead[L]{\textbf{\color{website-orange}\thepage}}
+\fancyhead[C]{\textplayfair{\nouppercase{\leftmark}}}
+\fancyhead[L]{\textplayfair{\color{website-orange}\thepage}}
 % Use the style we just defined
 \pagestyle{fancy}
 
