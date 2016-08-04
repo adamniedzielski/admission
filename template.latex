@@ -95,7 +95,7 @@
 \usepackage{listings}
 % Show "realistic" quotes in verbatim (code blocks)
 \usepackage{upquote}
-\setmonofont[Scale=0.6]{Monaco}
+\setmonofont[Scale=0.6]{Inconsolata}
 
 % Solution to remove excess white-space around code-blocks
 \usepackage{etoolbox}

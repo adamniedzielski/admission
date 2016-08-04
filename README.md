@@ -17,7 +17,7 @@ mix escript.build
 4. ChapterSampler - https://github.com/adamniedzielski/chapter_sampler
 5. Confessions - a server for uploading the book https://github.com/jackkinsella/confessions
 6. ```xelatex```
-7. Fonts: [Playfair Display](https://www.fontsquirrel.com/fonts/playfair-display) and [Libre Baskerville](https://www.fontsquirrel.com/fonts/libre-baskerville)
+7. Fonts: [Playfair Display](https://www.fontsquirrel.com/fonts/playfair-display), [Libre Baskerville](https://www.fontsquirrel.com/fonts/libre-baskerville), and [Inconsolata](https://github.com/google/fonts/tree/master/ofl/inconsolata)
 
 ## Directories structure
 
