@@ -50,14 +50,18 @@ h1, h2, h3, h4, h5, h6 {
   -moz-hyphens: none !important;
   -webkit-hyphens: none !important;
   adobe-hyphenate: none !important;
-  page-break-after: avoid;
-  page-break-inside: avoid;
   text-indent: 0px;
   text-align: left;
   font-weight: bold;
   font-family: "Gill Sans", Helvetica, Arial, sans-serif; }
 
+h3,h4,h5,h6 {
+  page-break-after: avoid;
+  page-break-inside: avoid;
+}
+
 h1 {
+  page-break-after: always;
   font-size: 1.618em;
   margin-bottom: 1.6em;
   text-decoration: underline;
@@ -68,7 +72,14 @@ h1 {
   margin-bottom: 0px;
   margin-top: 1.6em; }
 
+.main, .subtitle, .author {
+  page-break-before: avoid;
+  page-break-after: avoid;
+}
+
+
 h2 {
+  page-break-before: always;
   font-size: 1.4em;
   margin-top: 0.5em;
   margin-bottom: 0.5em; }
