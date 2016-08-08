@@ -1,4 +1,28 @@
 defmodule Admission.Builder do
+  def generate_latex(config, directory) do
+    {_, 0} = System.cmd(
+      "pandoc",
+      [
+        "-V",
+        "documentclass=report",
+        "-V",
+        "title=#{config.title}",
+        "-V",
+        "author=#{config.author}",
+        "--latex-engine=xelatex",
+        "-o",
+        "build/book.latex",
+        "--toc",
+        "--toc-depth=3",
+        "--include-before-body",
+        "content-pre-toc.latex",
+        "--template",
+        "#{System.cwd()}/template.latex"
+      ] ++ shared_args ++ chapter_file_names(config),
+      cd: directory
+    )
+  end
+
   def generate_pdf(config, directory) do
     {_, 0} = System.cmd(
       "pandoc",

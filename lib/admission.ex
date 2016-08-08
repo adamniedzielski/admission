@@ -6,6 +6,7 @@ defmodule Admission do
     [directory] = args
     ensure_directory_exists(directory)
     config = load_config(directory)
+    Builder.generate_latex(config, directory)
     Builder.generate_pdf(config, directory)
     Builder.generate_epub(config, directory)
     Builder.generate_mobi(directory)
