@@ -82,6 +82,9 @@
   {\thesubsubsection}{0em}{}
 \titlespacing\subsubsection{0pt}{-7pt plus 4pt minus 2pt}{-7pt plus 2pt minus 2pt}
 
+% Command to allow for parts to appear in the ToC
+\newcommand{\tocpart}[1]{\addtocontents{toc}{\bigskip \large\color{website-orange}#1\normalsize\color{black}\par}}
+
 % Code Block Listings
 \usepackage{listings}
 % Show "realistic" quotes in verbatim (code blocks)
