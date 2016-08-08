@@ -4,7 +4,7 @@ defmodule Admission.Builder do
       "pandoc",
       [
         "-V",
-        "documentclass=report",
+        "documentclass=extreport",
         "-V",
         "title=#{config.title}",
         "-V",
@@ -13,7 +13,7 @@ defmodule Admission.Builder do
         "-o",
         "build/book.latex",
         "--toc",
-        "--toc-depth=3",
+        "--toc-depth=4",
         "--include-before-body",
         "content-pre-toc.latex",
         "--template",
@@ -55,7 +55,7 @@ defmodule Admission.Builder do
         "-o",
         "build/book.epub",
         "--toc",
-        "--toc-depth=3",
+        "--toc-depth=2",
         "--epub-stylesheet=#{System.cwd()}/epub.css"
       ] ++ shared_args ++ files_to_compile,
       cd: directory
@@ -84,9 +84,7 @@ defmodule Admission.Builder do
 
   defp shared_args do
     [
-      "--number-sections",
-      "--standalone",
-      "--filter=../headings/wrapper"
+      "--standalone"
     ]
   end
 

@@ -31,15 +31,6 @@
 % Prettier Captions
 \usepackage[margin=10pt,font=small,labelfont=bf,labelsep=endash]{caption}
 
-% Hyperlinks (and links within doc)
-\usepackage{hyperref}
-% Remove default red borders around links in some PDF-viewers
-\hypersetup{%
-    pdfborder = {0 0 0}
-}
-% Don't use monospace font for urls
-\urlstyle{same}
-
 % Relax justification rules so as to stop bleeding into right margin
 \sloppy
 % setting the length variable of a configuration used by sloppy internally
@@ -103,6 +94,8 @@
 \preto{\@verbatim}{\topsep=-7pt \partopsep=-14pt }
 \makeatother
 
+% Turns off numbering for sections and subsections
+\setcounter{secnumdepth}{0}
 
 $if(highlighting-macros)$
   $highlighting-macros$
@@ -130,9 +123,6 @@ $endif$
 
 % Support strikeout markdown
 \usepackage[normalem]{ulem}
-
-% Avoid problems with \sout in headers with hyperref:
-\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
 
 % Tidier paragraph spacing solution
 \usepackage{parskip}
@@ -177,6 +167,17 @@ $endif$
   \fancyfoot{}
   \renewcommand{\headrulewidth}{0pt}% Line at the header invisible
 }
+
+% Hyperlinks (and links within doc) - should be last package
+\usepackage{hyperref}
+% Remove default red borders around links in some PDF-viewers
+\hypersetup{%
+    pdfborder = {0 0 0}
+}
+% Don't use monospace font for urls
+\urlstyle{same}
+% Avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
 
 $for(header-includes)$
   $header-includes$
