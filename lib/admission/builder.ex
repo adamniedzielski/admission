@@ -15,7 +15,7 @@ defmodule Admission.Builder do
         "--toc",
         "--toc-depth=4",
         "--include-before-body",
-        "content-pre-toc.latex",
+        convert_pretoc_to_latex(directory),
         "--template",
         "#{System.cwd()}/template.latex"
       ] ++ shared_args ++ chapter_file_names(config),
@@ -28,7 +28,7 @@ defmodule Admission.Builder do
       "pandoc",
       [
         "-V",
-        "documentclass=report",
+        "documentclass=extreport",
         "-V",
         "title=#{config.title}",
         "-V",
@@ -39,7 +39,7 @@ defmodule Admission.Builder do
         "--toc",
         "--toc-depth=3",
         "--include-before-body",
-        "content-pre-toc.latex",
+        convert_pretoc_to_latex(directory),
         "--template",
         "#{System.cwd()}/template.latex"
       ] ++ shared_args ++ chapter_file_names(config),
@@ -116,5 +116,22 @@ defmodule Admission.Builder do
 
   defp chapter_file_names(config) do
     config.chapters |> Enum.map(&(&1[:file_name]))
+  end
+
+  defp convert_pretoc_to_latex(directory) do
+    temp_latex_file = "content-pre-toc.latex"
+    {_, 0} = System.cmd(
+      "pandoc",
+      [
+        "--latex-engine=xelatex",
+        "-t",
+        "latex",
+        "-o",
+        temp_latex_file,
+        "content-pre-toc.md"
+      ],
+      cd: directory
+    )
+    temp_latex_file
   end
 end
