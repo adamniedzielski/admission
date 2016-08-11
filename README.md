@@ -18,6 +18,7 @@ mix escript.build
 5. Confessions - a server for uploading the book https://github.com/jackkinsella/confessions
 6. ```xelatex```
 7. Fonts: [Playfair Display](https://www.fontsquirrel.com/fonts/playfair-display), [Libre Baskerville](https://www.fontsquirrel.com/fonts/libre-baskerville), and [Inconsolata](https://github.com/google/fonts/tree/master/ofl/inconsolata)
+8. epzip - https://github.com/takahashim/epzip
 
 ## Directories structure
 
