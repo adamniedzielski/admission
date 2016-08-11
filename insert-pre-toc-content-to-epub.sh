@@ -26,6 +26,7 @@ unzip -o $EPUB_BOOK -d $EXPLODED_EPUB_DIR
 pandoc $PRE_TOC_CONTENT_MD_SOURCE -t html --standalone -o $PRE_TOC_CONTENT_HTML
 mv $PRE_TOC_CONTENT_HTML $EXPLODED_EPUB_DIR
 ruby insert-pre-toc-content.rb $EXPLODED_EPUB_DIR
+ruby improve-toc.rb $EXPLODED_EPUB_DIR
 
 rm $EPUB_BOOK
 epzip $EXPLODED_EPUB_DIR $EPUB_BOOK
