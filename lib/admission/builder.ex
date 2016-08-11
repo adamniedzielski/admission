@@ -60,6 +60,8 @@ defmodule Admission.Builder do
       ] ++ shared_args ++ files_to_compile,
       cd: directory
     )
+
+    {_, 0} = System.cmd("sh", ["insert-pre-toc-content-to-epub.sh", directory], cd: System.cwd())
   end
 
   def generate_mobi(directory) do
