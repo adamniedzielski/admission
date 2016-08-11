@@ -4,7 +4,7 @@ defmodule Admission.Builder do
       "pandoc",
       [
         "-V",
-        "documentclass=extreport",
+        "documentclass=report",
         "-V",
         "title=#{config.title}",
         "-V",
@@ -28,7 +28,7 @@ defmodule Admission.Builder do
       "pandoc",
       [
         "-V",
-        "documentclass=extreport",
+        "documentclass=report",
         "-V",
         "title=#{config.title}",
         "-V",
