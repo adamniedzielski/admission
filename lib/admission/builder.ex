@@ -119,7 +119,7 @@ defmodule Admission.Builder do
   end
 
   defp convert_pretoc_to_latex(directory) do
-    temp_latex_file = "content-pre-toc.latex"
+    temp_latex_file = "build/content-pre-toc.latex"
     {_, 0} = System.cmd(
       "pandoc",
       [
