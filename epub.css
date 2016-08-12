@@ -64,8 +64,20 @@ h1 {
   page-break-after: always;
   font-size: 1.618em;
   margin-bottom: 1.6em;
-  text-decoration: underline;
+  margin-top: 0px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 80%;
+  margin-left: 7%;
+}
 
+h1#copyright-warning {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+h1#acknowledgements {
+  page-break-before: always !important;
 }
 
 .title h1 {
@@ -81,8 +93,11 @@ h1 {
 h2 {
   page-break-before: always;
   font-size: 1.4em;
-  margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+h2.author {
+  text-align: center;
 }
 
 h1 + div h2 {
@@ -180,11 +195,16 @@ ul, ol, dl {
 
 li {
   font-family: "Adobe Garamond Pro", "Garamond", "Palatino", "Times New Roman", Caecilia, serif;
-  /*line-height: 1.5em;*/
+  line-height: 1.5em;
   orphans: 2;
   widows: 2;
   text-indent: 0;
   margin: 0;
+  margin-bottom: 0.3em;
+}
+
+.toc li {
+  line-height: 1em;
 }
 
 li p {
@@ -259,6 +279,7 @@ img.pwhack {
   text-indent: 0;
   width: 85% !important;
   font-weight: bold;
+  font-size: 0.8em;
 }
 
 caption {
@@ -267,6 +288,7 @@ caption {
  padding-left: 2em;
  padding-right: 2em;
  text-align: justify;
+ font-size: 0.8em;
  width: 85% !important;
 }
 
@@ -282,7 +304,7 @@ figure, .figure {
 figure figcaption {
   text-align: center;
   font-size: 0.8em;
-  width: 80%;
+  width: 80 !important%;
   font-weight: bold; }
 
 div.div-literal-block-admonition {
@@ -350,9 +372,6 @@ td {
   text-align: left;
   text-indent: 0;
   vertical-align: baseline; }
-
-td:last-child {
-  border-bottom: 1px solid black; }
 
 .zebra {
   /* shade background by groups of three */ }
