@@ -153,6 +153,9 @@ $else$
   \fi
 $endif$
 
+% Package used to insert PDF image of the book cover
+\usepackage{pdfpages}
+
 % Modify Headers
 \usepackage{fancyhdr}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
@@ -203,9 +206,8 @@ $endif$
 
 %% CORE DOCUMENT TEMPLATE
 \begin{document}
-  $if(title)$
-    \maketitle
-  $endif$
+
+  \includepdf[pages={1}]{$pdf_cover$}
 
   $if(abstract)$
     \begin{abstract}
