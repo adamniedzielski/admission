@@ -20,10 +20,10 @@ table {
   margin-bottom: 20px; }
 
 div.cover {
-  text-align: center;
+  text-align: left ;
   page-break-after: always;
-  padding: 0px;
-  margin: 0px; }
+  width: 100%;
+}
   div.cover img {
     height: 100%;
     max-width: 100%;
@@ -61,7 +61,7 @@ h3,h4,h5,h6 {
 }
 
 h1 {
-  page-break-after: always;
+  page-break-after: avoid;
   font-size: 1.618em;
   margin-bottom: 1.6em;
   margin-top: 0px;

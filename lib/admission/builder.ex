@@ -71,7 +71,7 @@ defmodule Admission.Builder do
   def generate_mobi(directory) do
     {_, 0} = System.cmd(
       "ebook-convert",
-      ["build/book.epub", "build/book.mobi"],
+      ["build/book.epub", "build/book.mobi", "--output-profile", "kindle"],
       cd: directory
     )
   end
